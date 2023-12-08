@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>Currency</title>
+    <script>
+        function convert() {
+            let amt = document.getElementById("amt").value
+            let curfrom = document.getElementById('from').value
+            let curto = document.getElementById("to").value
+            let result
+            // const ratesto = { '$': 83.43, '€': 89.91, '¥': 0.58 }
+            let rates
+            rates = { '$': { '₹': 83.43, '€': 0.93, '¥': 144.86 }, '€': { '₹': 89.88, '$': 1.08, '¥': 156.09 }, '¥': { '₹': 0.58, '€': 0.0064, '$': 0.0069 }, '₹': { '¥': 1.74, '€': 0.011, '$': 0.012 } }
+            // switch (curfrom) {
+            //     case '$': rates = { '₹': 83.43, '€': 0.93, '¥': 144.86 }; break;
+            //     case '€': rates = { '₹': 89.88, '$': 1.08, '¥': 156.09 }; break;
+            //     case '¥': rates = { '₹': 0.58, '€': 0.0064, '$': 0.0069 }; break;
+            //     case '₹': rates = { '¥': 1.74, '€': 0.011, '$': 0.012 }; break;
+            //     case '&dinar;': rates = {'₹': 270.70, ''}
+            //     default: result = 'invalid choice'
+            // }
+            result = amt * rates[curfrom][curto];
+            if (curfrom == curto) {
+                result = amt
+            }
+            document.getElementById('result').innerHTML = result + ' ' + curto
+        }
+    </script>
+    <style>
+        .p-border {
+            border: 1px solid black;
+            width: fit-content;
+        }
+
+        .div-border {
+            border: 1px solid black;
+        }
+
+        body {
+            background-image: url('../Images/cover-image-3-2-768x333.jpg');
+            /* filter: blur(1px);
+            -webkit-filter: blur(8px); */
+            background-size: 1100px 650px;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <B>CURRENCY CONVERTOR</B><br><br><br>
+        <div class="div-border"><br>
+            <b><u>Enter the amount :</u></b> <input type="number" id="amt"><br><br>
+            <b><u>From :</u></b> <select id="from">
+                <option>₹</option>
+                <option>$</option>
+                <option>&euro;</option>
+                <option>&yen;</option>
+            </select>
+            <br><br>
+            <b><u>To :</u></b> <select id="to">
+                <option>$</option>
+                <option>&euro;</option>
+                <option>&yen;</option>
+                <option>₹</option>
+            </select><br><br>
+            <input type="submit" onclick="convert()">
+            <!-- <p style="border:1px; background-color: white" id="result"></p> -->
+            <p class="p-border" id="result">0.000</p>
+        </div>
+    </center>
+</body>
+
+</html>

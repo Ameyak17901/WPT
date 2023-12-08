@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Currency converter</title>
+    <script>
+        function convertcurrency(){
+            let input = document.getElementById("amt").value
+            // let from = document.getElementById("from").value
+            let to = document.getElementById("to").value
+            const rates = {'$': 83.38, '&euro;': 89.93, '&yen;': 0.5771}
+            let result
+            switch(to){
+                case '$': result = input * rates["$"]; break;
+                case '&euro;': result = input * rates["&euro;"]; break;
+                case '&yen;': result = input * rates['&yen;']; break;
+            }
+            document.getElementById('cmt').innerHTML = to + " : " + result
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p>Enter the value: <input type="number" id="amt"></p>
+        <!-- <p>from: <select id="from">
+            <option>select currency</option>
+            <option>&euro;</option>
+            <option>&#8377;</option>
+            <option>&#8356;</option>
+            <option>$</option>
+            <option>&#165;</option>
+            
+        </select></p> -->
+        <p>to: <select id="to" onchange="convertcurrency()">
+            <option>select currency</option>
+            <option>&euro;</option>
+            <option>$</option>
+            <option>&yen;</option>
+        </select></p>
+        
+        <p id="cmt"></p>
+    </div>
+</body>
+</html>
