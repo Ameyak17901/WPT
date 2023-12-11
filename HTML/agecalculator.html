@@ -7,14 +7,31 @@
     <title>Age calculator</title>
     <script>
         function convert() {
-            let dob = document.getElementById()
+            let date1 = document.getElementById('dob').value;
+            let userdate = date1.split("-");
+            let userYear = parseInt(userdate[0]);
+            let userMonth = parseInt(userdate[1]);
+            let userDate = parseInt(userdate[2]);
+            let today = new Date()
+            let d = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate()
+            let todayDate1 = d.split("-");
+            let todayYear = parseInt(todayDate1[0]);
+            let todayMonth = parseInt(todayDate1[1]);
+            let todayDate = parseInt(todayDate1[2]);
+            let yearDiff = todayYear - userYear;
+            let monthDiff = todayMonth - userMonth;
+            let dateDiff = todayDate - userDate;
+            let Age = Math.abs(yearDiff) + " years " + Math.abs(monthDiff) + " months " + Math.abs(dateDiff) + " days"
+            document.getElementById('age').innerHTML = Age
         }
+        // convert()
     </script>
 </head>
 
 <body>
     <div style="justify-content:center; align-items:center">
-        <p>Enter the date of birth <input type="date" id="dob" onblur="convert()"></p>
+        <p>Enter the date of birth <input type="date" id="dob"></p>
+        <button onclick="convert()">submit</button>
         <b>age: <span id="age"></span></b>
     </div>
 
