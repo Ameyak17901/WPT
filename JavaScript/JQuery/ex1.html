@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <script src=".\jquery-3.6.0.js"></script>
+    <script>
+        $().ready(() => {
+
+            console.log("hello")
+            $("#ok").click(() => {
+                console.log("ok")
+            })
+
+            $("#i2").click(function () {
+                console.log("not ok")
+            })
+            
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        This is JQuery example
+        <input type="button" value="OK" id="ok">
+        <input type="button" value="not ok" id="i2">
+    </div>
+</body>
+
+</html>

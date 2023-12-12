@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Currency converter</title>
+
     <script>
-        function convertcurrency(){
+        function convertcurrency() {
             let input = document.getElementById("amt").value
             // let from = document.getElementById("from").value
             let to = document.getElementById("to").value
-            const rates = {'$': 83.38, '&euro;': 89.93, '&yen;': 0.5771}
+            const rates = { '$': 83.38, '&euro;': 89.93, '&yen;': 0.5771 }
             let result
-            switch(to){
+            switch (to) {
                 case '$': result = input * rates["$"]; break;
                 case '&euro;': result = input * rates["&euro;"]; break;
                 case '&yen;': result = input * rates['&yen;']; break;
@@ -17,7 +19,17 @@
             document.getElementById('cmt').innerHTML = to + " : " + result
         }
     </script>
+
+    <!-- <style>
+        select {
+            background-color: aqua;
+            color: red;
+            font-size: medium;
+        }
+    </style> -->
+    <link rel="stylesheet" href="../HTML/CSS/External.css" type="text/css">
 </head>
+
 <body>
     <div>
         <p>Enter the value: <input type="number" id="amt"></p>
@@ -31,13 +43,15 @@
             
         </select></p> -->
         <p>to: <select id="to" onchange="convertcurrency()">
-            <option>select currency</option>
-            <option>&euro;</option>
-            <option>$</option>
-            <option>&yen;</option>
-        </select></p>
-        
-        <p id="cmt"></p>
+                <!-- <option style="color:brown; background-color: white;">select currency</option> -->
+                <option>&euro;</option>
+                <option>$</option>
+                <option>&yen;</option>
+            </select></p>
+    </div>
+    <div id="result">
+        <p id="cmt"><span>Result</span></p>
     </div>
 </body>
+
 </html>
