@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        $().ready(() => {
+            let arr = []
+            $('#in1').blur(() => {
+                let v = $('#in1').val()
+                arr.pop()
+                if (v) arr.push(v)
+                arr.forEach((ele) => $('#checkbox').append(`<option>${ele}</option>`))
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        Enter name: <input type="text" id="in1">
+        select color: <select id="checkbox">
+            <option>red</option>
+            <option>blue</option>
+            <option>green</option>
+        </select>
+    </div>
+</body>
+
+</html>
