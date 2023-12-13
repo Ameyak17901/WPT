@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Timer</title>
+    <script>
+        let cnt
+        function start() {
+            cnt = 0
+            setInterval(() => {
+                console.log(cnt)
+                cnt++
+            }, 1000)
+            document.getElementById('timer').innerText = cnt
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h2 style="text-align: center; border:1psx solid black">Timer</h2>
+        <p id="timer"></p>
+        <input type="button" id="start" value="start" onclick="start()">
+        <input type="button" id="stop" value="stop" onclick="stop()">
+        <input type="button" id="res" value="reset" onclick="reset()">
+    </div>
+</body>
+
+</html>

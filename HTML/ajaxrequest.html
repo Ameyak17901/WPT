@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ajax call</title>
+    <script>
+        function f1() {
+            let http = new XMLHttpRequest()
+
+            http.onload = function () {
+                // console.log(http.responseText)
+                let obj = JSON.parse(http.responseText)
+                console.log(obj.data.first_name + " " + obj.data.last_name)
+                document.getElementById("name").innerHTML = `<b>${obj.data.first_name} ${obj.data.last_name}</b>`
+                document.getElementById("photo").innerHTML = `<img src=${obj.data.avatar} alt="not found">`
+            }
+            let id = document.getElementById('i1').value
+            http.open("GET", `https://reqres.in/api/users/${id}`)
+            http.send()
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <input type="number" id="i1" name="id">
+        <input type="button" name="btn" id="btn" value="click here" onclick="f1()">
+        <p id="name"></p>
+        <p id="photo"></p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+#calculator {
+    padding-top: 20px;
+    display: grid;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(99, 141, 85, 0.302);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h2 {
+    font-weight: bold;
+    font-style: oblique;
+}
