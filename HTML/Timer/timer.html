@@ -4,14 +4,23 @@
 <head>
     <title>Timer</title>
     <script>
-        let cnt
+        let cnt, intervalid
         function start() {
             cnt = 0
-            setInterval(() => {
-                console.log(cnt)
-                cnt++
+            intervalid = setInterval(() => {
+                ++cnt
+                document.getElementById('timer').innerHTML = `<p>${cnt}</p>`
             }, 1000)
-            document.getElementById('timer').innerText = cnt
+
+        }
+        function stop() {
+            clearInterval(intervalid)
+        }
+
+        function reset() {
+            cnt = 0
+            clearInterval(intervalid)
+            document.getElementByid('timer').innerHTML = ''
         }
     </script>
 </head>
